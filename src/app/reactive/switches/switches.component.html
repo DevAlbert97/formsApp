@@ -1,2 +1,61 @@
-<h2>Reactive: Switches</h2>
+<h2>Reactive: <small>Switches</small></h2>
 <hr>
+
+<form [formGroup]="myForm" (ngSubmit)="savePerson()">
+  <!-- Radio -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Genero</label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="radioMasc" value="M" formControlName="gender">
+        <label class="form-check-label" for="radioMasc">Masculino</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="radioFem" value="F" formControlName="gender">
+        <label class="form-check-label" for="radioFem">Femenino</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Switches -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label">Notificaciones</label>
+    <div class="col-sm-9">
+      <div class="form-check form-switch mt-2">
+        <input type="checkbox" class="form-check-input" id="checkNot" formControlName="notifications">
+        <label class="form-check-label" for="checkNot">Quiero recibir notificaciones</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="terms&cond" name="terms&cond" formControlName="terms">
+        <label class="form-check-label" for="terms&cond">Terminos y condiciones</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button submit -->
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-end" type="submit" >Guardar</button>
+    </div>
+  </div>
+</form>
+
+<h5>Valor del formulario</h5>
+<pre>{{myForm.value | json}}</pre>
+<br>
+<h5>Persona</h5>
+<pre>{{person | json}}</pre>
+<br>
+<h5>Valid</h5>
+<pre>{{myForm.valid | json}}</pre>
+<!-- <h5>Terminos</h5>
+<pre>{{myForm.controls['terminos'].errors | json}}</pre> -->
+<!-- <br>
+<pre>Condiciones: </pre> -->

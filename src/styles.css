@@ -3,5 +3,8 @@ html {
     height: 100%;
     background-image: url('./assets/low-poly-grid-haikei.svg');
     background-size: cover;
-    background-repeat: no-repeat;
+}
+
+.container{
+    border-radius: 10px;
 }
