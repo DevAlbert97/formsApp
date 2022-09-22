@@ -1,47 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 
 interface MenuItem {
-  texto : string;
-  ruta  : string;
+  text : string;
+  route  : string;
 }
 
 
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
-  styleUrls: ['./side-menu.component.css']
+  styleUrls: ['./side-menu.component.css'],
 })
-export class SideMenuComponent{
-
-  templateMenu: MenuItem [] = [
+export class SideMenuComponent {
+  templateMenu: MenuItem[] = [
     {
-      texto: 'Basicos',
-      ruta: './template/basicos'
+      text: 'Basicos',
+      route: './template/basicos',
     },
     {
-      texto: 'Dinamicos',
-      ruta: './template/dinamicos'
+      text: 'Dinamicos',
+      route: './template/dinamicos',
     },
     {
-      texto: 'Switches',
-      ruta: './template/switches'
-    }
+      text: 'Switches',
+      route: './template/switches',
+    },
   ];
 
-  reactiveMenu: MenuItem [] = [
+  reactiveMenu: MenuItem[] = [
     {
-      texto: 'Basicos',
-      ruta: './reactive/basicos'
+      text: 'Basicos',
+      route: './reactive/basicos',
     },
     {
-      texto: 'Dinamicos',
-      ruta: './reactive/dinamicos'
+      text: 'Dinamicos',
+      route: './reactive/dinamicos',
     },
     {
-      texto: 'Switches',
-      ruta: './reactive/switches'
-    }
+      text: 'Switches',
+      route: './reactive/switches',
+    },
   ];
 
-
+  authMenu: MenuItem[] = [
+    {
+      text: 'Login',
+      route: './auth/login',
+    },
+    {
+      text: 'Registro',
+      route: './auth/registro',
+    },
+  ];
 }
