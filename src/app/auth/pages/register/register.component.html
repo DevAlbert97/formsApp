@@ -16,7 +16,7 @@
                 <div class="col-sm-9">
                     <label class="col-sm-3 col-form-label">Email</label>
                     <input type="email" class="form-control" placeholder="Email del usuario" formControlName="email">
-                    <span class="form-text text-danger" *ngIf="fieldValid('email')">El correo es obligatorio</span>
+                    <span class="form-text text-danger" *ngIf="fieldValid('email')">{{errorMessage}}</span>
                 </div>
             </div>
             <!-- Username -->
@@ -31,19 +31,22 @@
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 col-form-label">Password</label>
-                    <input type="password" class="form-control" placeholder="Password de su cuenta">
+                    <input type="password" class="form-control" placeholder="Password de su cuenta" formControlName="password">
+                    <span class="form-text text-danger" *ngIf="fieldValid('password')">La contraseña debe ser mayor de 6 caracteres</span>
+
                 </div>
             </div>
             <!-- Confirm Password -->
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 col-form-label">Confirmar</label>
-                    <input type="password" class="form-control" placeholder="Confirmar password de su cuenta">
+                    <input type="password" class="form-control" placeholder="Confirmar password de su cuenta" formControlName="confirmPass">
+                    <span class="form-text text-danger" *ngIf="fieldValid('confirmPass')">Las contraseñas deben ser iguales</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary float-end" type="submit">Crear</button>
+                    <button class="btn btn-primary float-end" type="submit" [disabled]="myForm.pending">Crear</button>
                 </div>
             </div>
         </form>
@@ -51,9 +54,22 @@
 </div>
 
 <h2>Form Valid: {{myForm.valid}}</h2>
-<h5>Fullname</h5>
-<pre>{{myForm.controls['fullname'].errors | json}}</pre>
-<h5>Email</h5>
-<pre>{{myForm.controls['email'].errors | json}}</pre>
-<h5>Username</h5>
-<pre>{{myForm.controls['username'].errors | json}}</pre>
+<h2>Form Status: {{myForm.status}}</h2>
+<h2>Form Pending: {{myForm.pending}}</h2>
+<h2>Form Errors: {{myForm.errors | json}}</h2>
+<div class="row">
+    <div class="col-6">
+        <h5>Fullname</h5>
+        <pre>{{myForm.controls['fullname'].errors | json}}</pre>
+        <h5>Email</h5>
+        <pre>{{myForm.controls['email'].errors | json}}</pre>
+        <h5>Username</h5>
+        <pre>{{myForm.controls['username'].errors | json}}</pre>
+    </div>
+    <div class="col">
+        <h5>Password</h5>
+        <pre>{{myForm.controls['password'].errors | json}}</pre>
+        <h5>Confirm password</h5>
+        <pre>{{myForm.controls['confirmPass'].errors | json}}</pre>
+    </div>
+</div>
